@@ -5,11 +5,10 @@ const userSchema = new Schema(
     name: {
       type: String,
       trim: true,
-      required:false,
+      required: false,
     },
     phone: {
       type: String,
-      unique: true,
       trim: true,
     },
     password: {
@@ -20,7 +19,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trim: true
+      trim: true,
     },
   },
   { timestamps: true, versionKey: false },
