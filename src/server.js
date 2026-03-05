@@ -12,6 +12,7 @@ import pharmaciesRoutes from './routes/pharmaciesRoutes.js';
 import reviewsRoutes from './routes/reviewsRoutes.js';
 import productsRoutes from './routes/productsRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3030;
@@ -26,6 +27,7 @@ app.use(pharmaciesRoutes);
 app.use(reviewsRoutes);
 app.use(productsRoutes);
 app.use(userRoutes);
+app.use(cartRoutes);
 
 app.use(notFoundHandler);
 
