@@ -6,7 +6,9 @@ export const getAllProductsSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1),
     perPage: Joi.number().integer().min(5).max(20).default(12),
-    category: Joi.string().valid(...CATEGORIES),
+    category: Joi.string()
+      .valid(...CATEGORIES)
+      .allow(''),
     search: Joi.string().allow(''),
   }),
 };
