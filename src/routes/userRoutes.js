@@ -19,6 +19,6 @@ router.post('/api/user/register', celebrate(registerUserSchema), registerUser);
 router.post('/api/user/login', celebrate(loginUserSchema), loginUser);
 router.post('/api/user/logout', authenticate, logoutUser);
 router.get('/api/user/user-info', authenticate, getCurrentUser);
-router.get('/api/session', refreshUserSession);
+router.post('/api/session', refreshUserSession);
 
 export default router;
