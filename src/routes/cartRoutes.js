@@ -4,6 +4,7 @@ import {
   getCart,
   updateCart,
   checkoutCart,
+  removeFromCart,
 } from '../controllers/cartController.js';
 import { celebrate } from 'celebrate';
 import { checkoutSchema } from '../validations/checkoutValidation.js';
@@ -12,6 +13,7 @@ const router = express.Router();
 
 router.get('/api/cart', authenticate, getCart);
 router.put('/api/cart/update', authenticate, updateCart);
+router.delete('/cart/:productId', authenticate, removeFromCart);
 router.post(
   '/api/cart/checkout',
   authenticate,

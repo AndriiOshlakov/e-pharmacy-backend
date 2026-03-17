@@ -40,6 +40,25 @@ export const updateCart = async (req, res) => {
   res.json(cart);
 };
 
+export const removeFromCart = async (req, res) => {
+  const { productId } = req.params;
+
+  const cart = await Cart.findOne({ userId: req.user._id });
+
+  if (!cart) {
+    return res.status(404).json({ message: 'Cart not found' });
+  }
+
+  // фільтруємо всі items крім того який треба видалити
+  cart.items = cart.items.filter(
+    (item) => item.productId.toString() !== productId,
+  );
+
+  await cart.save();
+
+  res.json(cart);
+};
+
 export const checkoutCart = async (req, res) => {
   const { userName, phone, email, address } = req.body;
 
