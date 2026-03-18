@@ -81,6 +81,7 @@ export const checkoutCart = async (req, res) => {
       productId: item.productId._id,
       name: item.productId.name,
       price,
+      photo: item.productId.photo,
       quantity: item.quantity,
     };
   });

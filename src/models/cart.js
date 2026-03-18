@@ -12,6 +12,14 @@ const cartItemSchema = new Schema(
       required: true,
       min: 1,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
+    photo: {
+      type: String,
+      required: true,
+    },
   },
   { _id: false },
 );
