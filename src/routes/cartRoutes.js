@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get('/api/cart', authenticate, getCart);
 router.put('/api/cart/update', authenticate, updateCart);
-router.delete('/cart/:productId', authenticate, removeFromCart);
+router.delete('api/cart/:productId', authenticate, removeFromCart);
 router.post(
   '/api/cart/checkout',
   authenticate,
