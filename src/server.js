@@ -19,12 +19,7 @@ const PORT = process.env.PORT ?? 3030;
 
 app.use(logger);
 app.use(express.json());
-app.use(
-  cors({
-    origin: 'https://e-pharmacy-frontend-client-p1f4.vercel.app', // Твоя актуальна адреса на Vercel
-    credentials: true,
-  }),
-);
+app.use(cors());
 app.use(cookieParser());
 app.use(helmet());
 
