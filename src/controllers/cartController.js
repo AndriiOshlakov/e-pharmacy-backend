@@ -42,6 +42,26 @@ export const updateCart = async (req, res) => {
   res.json(cart);
 };
 
+export const decreaseCart = async (req, res) => {
+  const { items } = req.body;
+
+  let cart = await Cart.findOne({ userId: req.user._id });
+
+  for (const newItem of items) {
+    const existingItem = cart.items.find(
+      (item) => item.productId.toString() === newItem.productId,
+    );
+
+    if (existingItem) {
+      existingItem.quantity -= newItem.quantity;
+    }
+  }
+
+  await cart.save();
+
+  res.json(cart);
+};
+
 export const removeFromCart = async (req, res) => {
   const { productId } = req.params;
 
